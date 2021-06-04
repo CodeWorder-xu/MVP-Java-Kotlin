@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- BottomPopupOption 进入动画 joe-->
+    <translate
+        android:duration="@integer/animation_default_duration"
+        android:fromYDelta="100%"
+        android:toYDelta="0" />
+</set>
