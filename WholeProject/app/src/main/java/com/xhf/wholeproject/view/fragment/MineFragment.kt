@@ -51,7 +51,7 @@ class MineFragment : BaseFragment() {
         try {
             var getSum1 = sum?.toInt();//当sum为空时,直接返回
             var getSum0 = sum!!.toInt();//当sum为空时,抛出异常
-        } catch (e: NumberFormatException) {
+        } catch (e: Exception) {
 
         }
         val value: Int = 10000
