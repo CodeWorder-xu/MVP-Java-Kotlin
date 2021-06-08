@@ -42,7 +42,17 @@ public class GuidePageActivity extends BaseActivity {
     @Override
     protected void initViewsAndEvents() {
         super.initViewsAndEvents();
-
+        guideViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                if (position == resourcesId.length - 1) {
+                    guideActionBt.setVisibility(View.VISIBLE);
+                } else {
+                    guideActionBt.setVisibility(View.GONE);
+                }
+            }
+        });
         guideViewPager.setAdapter(new PagerAdapter() {
             @Override
             public int getCount() {
