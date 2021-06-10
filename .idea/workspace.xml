@@ -7,12 +7,73 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7789c222-6217-4fca-91e9-5dcf9e40168e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/WholeProject/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WholeProject/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/app/src/main/java/com/xhf/wholeproject/myview/NoPreloadViewPager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/app/src/main/java/com/xhf/wholeproject/utils/ManagerUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/app/src/main/java/com/xhf/wholeproject/view/adapter/HomeFocusListAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/app/src/main/res/drawable-xhdpi/bg_item_focus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/app/src/main/res/drawable-xhdpi/bg_item_nofocus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/app/src/main/res/drawable/item_nobuy_bg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/app/src/main/res/layout/item_focuslist.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/OnDoubleClickListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/XBanner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/XBannerScroller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/XBannerUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/XBannerViewPager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/entity/BaseBannerInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/entity/LocalImageInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/entity/SimpleBannerInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/transformers/AccordionPageTransformer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/transformers/AlphaPageTransformer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/transformers/BasePageTransformer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/transformers/CubePageTransformer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/transformers/DefaultPageTransformer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/transformers/DepthPageTransformer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/transformers/FlipPageTransformer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/transformers/RotatePageTransformer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/transformers/ScalePageTransformer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/transformers/StackPageTransformer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/transformers/Transformer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/transformers/ZoomCenterPageTransformer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/transformers/ZoomFadePageTransformer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/transformers/ZoomPageTransformer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/java/com/stx/xhb/xbanner/transformers/ZoomStackPageTransformer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/res/drawable/shape_point_normal.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/res/drawable/shape_point_select.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/res/layout/xbanner_item_image.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/res/values/attrs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/res/values/ids.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WholeProject/xbanner/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xbanner/xbanner.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WholeProject/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/WholeProject/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WholeProject/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WholeProject/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WholeProject/app/src/main/java/com/xhf/wholeproject/utils/PermissionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/WholeProject/app/src/main/java/com/xhf/wholeproject/utils/PermissionUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WholeProject/app/src/main/java/com/xhf/wholeproject/view/fragment/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/WholeProject/app/src/main/java/com/xhf/wholeproject/view/fragment/HomeFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WholeProject/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WholeProject/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WholeProject/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/WholeProject/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,19 +86,18 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="1440" />
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
-  </component>
   <component name="ProjectId" id="1tel9Po682TaA106soaVOC1mqBg" />
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
+    <option name="foldersAlwaysOnTop" value="false" />
     <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="SvnConfiguration">
@@ -58,5 +118,9 @@
       <screen x="1440" y="-68" width="1920" height="1080" />
     </state>
     <state x="1998" y="170" key="NewModule_or_Project.wizard/0.0.1440.900/1440.-68.1920.1080@1440.-68.1920.1080" timestamp="1623137344229" />
+    <state x="1888" y="50" key="SettingsEditor" timestamp="1623222145278">
+      <screen x="1440" y="-68" width="1920" height="1080" />
+    </state>
+    <state x="1888" y="50" key="SettingsEditor/0.25.1440.805/1440.-68.1920.1080@1440.-68.1920.1080" timestamp="1623222145278" />
   </component>
 </project>

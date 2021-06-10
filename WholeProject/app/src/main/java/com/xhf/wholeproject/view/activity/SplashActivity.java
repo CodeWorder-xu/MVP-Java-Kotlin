@@ -83,7 +83,8 @@ public class SplashActivity extends BaseActivity implements SplashView {
     @Override
     public void onToNavigation() {
         SPManager.setBoolean(this, "isgray", true);
-        readyGoThenKill(GuidePageActivity.class);
+//        readyGoThenKill(GuidePageActivity.class);
+        readyGoThenKill(MainActivity.class);
     }
 
 
@@ -173,9 +174,8 @@ public class SplashActivity extends BaseActivity implements SplashView {
     }
 
     public void onAuthenticated() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
+        readyGoThenKill(MainActivity.class);
+
     }
 
 }

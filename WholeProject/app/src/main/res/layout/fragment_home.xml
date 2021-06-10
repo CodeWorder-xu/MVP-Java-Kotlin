@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <com.stx.xhb.xbanner.XBanner
+        android:id="@+id/xb_list"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:isShowIndicatorOnlyOne="true"
+        app:pointsVisibility="false"
+        app:pointNormal="@color/all_808080"
+        app:pointsContainerBackground="@color/aliceblue"
+        app:pointsPosition="CENTER" />
 
     <TextView
         android:id="@+id/tv_read"
@@ -16,4 +26,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="另一种语音播放" />
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/rlv_Focuslist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:descendantFocusability="afterDescendants"
+        android:focusable="true"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp" />
 </LinearLayout>

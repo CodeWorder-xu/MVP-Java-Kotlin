@@ -1,2 +1,2 @@
-include ':app', ':skin'
+include ':app', ':xbanner'
 rootProject.name='My Application'

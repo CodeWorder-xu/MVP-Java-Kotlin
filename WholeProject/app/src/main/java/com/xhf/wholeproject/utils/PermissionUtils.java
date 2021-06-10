@@ -18,7 +18,7 @@ import java.util.List;
  *
  *author:Xu.Mr
  *
- *content:
+ *content:权限相关类
  */
 public class PermissionUtils {
     /**

@@ -79,4 +79,7 @@ dependencies {
     // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
 
     implementation 'io.github.microutils:kotlin-logging-jvm:2.0.6'
+    implementation project(path: ':xbanner')
+
+
 }

@@ -1,6 +1,9 @@
 package com.xhf.wholeproject.base;
 
 import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.core.view.ViewCompat;
 
 import com.xhf.wholeproject.rxbus.EventCenter;
 
@@ -12,7 +15,19 @@ import com.xhf.wholeproject.rxbus.EventCenter;
  *content:
  */
 public class BaseFragment extends BaseLazyFragment {
-
+    /**
+     * 缩放空间的大小
+     * @param view
+     * @param scale
+     */
+    protected void scaleView(View view,float scale) {
+        ViewCompat.animate(view).scaleX(scale).scaleY(scale).start();
+        ViewGroup parent0 = (ViewGroup) view.getParent();
+        if(parent0 != null) {
+            parent0.requestLayout();
+            parent0.invalidate();
+        }
+    }
 
     @Override
     protected void onFirstUserVisible() {
