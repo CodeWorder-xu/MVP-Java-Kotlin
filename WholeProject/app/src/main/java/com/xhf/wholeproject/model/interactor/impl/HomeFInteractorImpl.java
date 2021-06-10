@@ -21,8 +21,8 @@ public class HomeFInteractorImpl implements HomeFInteractor {
     @Override
     public ArrayList<String> onBannerValue() {
         ArrayList<String> list = new ArrayList<>();
-//        list.add("http://imageprocess.yitos.net/images/public/20160910/99381473502384338.jpg");
-//        list.add("http://imageprocess.yitos.net/images/public/20160910/77991473496077677.jpg");
+        list.add("http://imageprocess.yitos.net/images/public/20160910/99381473502384338.jpg");
+        list.add("http://imageprocess.yitos.net/images/public/20160910/77991473496077677.jpg");
         list.add("http://imageprocess.yitos.net/images/public/20160906/1291473163104906.jpg");
         return list;
     }
