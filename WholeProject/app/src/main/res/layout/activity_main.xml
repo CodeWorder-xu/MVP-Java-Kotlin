@@ -39,7 +39,7 @@
             android:drawableTop="@drawable/selector_home"
             android:drawablePadding="6dp"
             android:gravity="center"
-            android:text="首页"
+            android:text="@string/main"
             android:textSize="12sp" />
 
         <RadioButton
@@ -52,7 +52,7 @@
             android:drawableTop="@drawable/selector_list"
             android:drawablePadding="6dp"
             android:gravity="center"
-            android:text="列表"
+            android:text="@string/list"
             android:textSize="12sp" />
 
 
@@ -68,7 +68,7 @@
             android:button="@null"
             android:drawableTop="@drawable/selector_promotion"
             android:gravity="center"
-            android:text="最新活动"
+            android:text="@string/welfare"
             android:textSize="12sp" />
 
         <RadioButton
@@ -81,7 +81,7 @@
             android:drawableTop="@drawable/selector_open"
             android:drawablePadding="6dp"
             android:gravity="center"
-            android:text="视频"
+            android:text="@string/movie"
             android:textSize="12sp" />
 
         <RadioButton
@@ -94,7 +94,7 @@
             android:drawableTop="@drawable/selector_setting"
             android:drawablePadding="6dp"
             android:gravity="center"
-            android:text="我的"
+            android:text="@string/mine"
             android:textSize="12sp" />
     </RadioGroup>
 </LinearLayout>

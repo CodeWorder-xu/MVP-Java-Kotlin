@@ -120,7 +120,7 @@ public class MainActivity extends BaseActivity {
 
     private void codeSCan() {
 
-        //打开二维码扫描界??
+        //摄像头权限
         RxPermissions rxPermissions = new RxPermissions(MainActivity.this);
         rxPermissions.request(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
                 .subscribe(granted -> {

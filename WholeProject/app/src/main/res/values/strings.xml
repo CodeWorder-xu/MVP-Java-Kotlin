@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MVP</string>
+    <string name="app_name">静思</string>
     <string name="dialog_positive">Ok</string>
     <string name="dialog_negative">Cancel</string>
     <string name="common_empty_msg">数据解析错误\n请点击屏幕重试</string>
@@ -10,5 +10,13 @@
     <string name="exit_hint">再按一次退出</string>
     <string name="personal_detalis">个人信息</string>
     <string name="unLogin">退出登录</string>
+    <string name="retrieve">检索本地</string>
+    <string name="manual">手动导入</string>
+    <string name="main">首页</string>
+    <string name="list">书籍</string>
+    <string name="movie">视频</string>
+    <string name="mine">我的</string>
+    <string name="welfare">活动</string>
+
 
 </resources>

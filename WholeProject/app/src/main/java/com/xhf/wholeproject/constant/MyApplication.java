@@ -2,6 +2,7 @@ package com.xhf.wholeproject.constant;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
 
 
@@ -144,5 +145,33 @@ public class MyApplication extends Application implements Thread.UncaughtExcepti
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         this.startActivity(intent);
         android.os.Process.killProcess(android.os.Process.myPid());
+    }
+
+
+
+    /**token失效重新登录
+     * 登出
+     */
+    public void logout(Context context, String hintInfo) {
+//        Intent intent = new Intent(context, LoginActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+       /* Realm realm = Realm.getDefaultInstance();
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                realm.delete(User.class); // 个人信息表
+                realm.delete(TokenDB.class);
+            }
+        });
+        realm.close();
+        Intent intent = new Intent(context, LoginActivity.class);
+        Bundle bundle = new Bundle();
+        if (hintInfo != null) {
+            bundle.putString(Key.BUNDLE_TOKEN_FALSE, hintInfo);
+            intent.putExtras(bundle);
+        }
+        context.startActivity(intent);*/
+
     }
 }

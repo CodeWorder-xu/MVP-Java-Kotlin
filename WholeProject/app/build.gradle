@@ -66,8 +66,11 @@ dependencies {
 
     //rxjava
     implementation 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
-    implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
-
+    implementation 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
 
     implementation 'skin.support:skin-support:4.0.4'                   // skin-support
     implementation 'skin.support:skin-support-appcompat:4.0.4'         // skin-support 基础控件支持
