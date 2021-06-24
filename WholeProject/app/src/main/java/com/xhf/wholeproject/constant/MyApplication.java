@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 
 
+import com.hjq.permissions.XXPermissions;
 import com.jiongbull.jlog.Logger;
 import com.jiongbull.jlog.constant.LogLevel;
 import com.jiongbull.jlog.constant.LogSegment;
@@ -16,6 +17,8 @@ import com.xhf.wholeproject.base.AutoAdapterUtil;
 import com.xhf.wholeproject.base.BaseAppManager;
 import com.xhf.wholeproject.utils.CrashHandler;
 import com.xhf.wholeproject.view.activity.MainActivity;
+
+import org.litepal.LitePalApplication;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +35,7 @@ import skin.support.design.app.SkinMaterialViewInflater;
  *
  *content:Application
  */
-public class MyApplication extends Application implements Thread.UncaughtExceptionHandler {
+public class MyApplication extends LitePalApplication implements Thread.UncaughtExceptionHandler {
     private static List<Activity> activityList; // 存放每个类的集合
     private static MyApplication instance;
 
@@ -46,6 +49,7 @@ public class MyApplication extends Application implements Thread.UncaughtExcepti
     @Override
     public void onCreate() {
         super.onCreate();
+        XXPermissions.setScopedStorage(true);
         //保存数据
         Hawk.init(this).build();
         instance = this;

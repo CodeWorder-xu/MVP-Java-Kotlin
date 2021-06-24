@@ -31,7 +31,7 @@ public class SPManager {
 
     }
 
-    //存储boolean信息
+    //存储Inter信息
     public static int getInter(Context context, String name) {
         return context.getSharedPreferences("userinfo", Context.MODE_PRIVATE).getInt(name, -1);
     }

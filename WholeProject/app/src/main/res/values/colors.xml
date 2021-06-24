@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="black80">#80000000</color>
+    <!--黑色-->
+    <color name="black">#000000</color>
+    <!--黑色-->
     <color name="transparent">#00000000</color>
     <!-- 透明色 -->
     <color name="white">#ffffff</color>
@@ -300,4 +304,14 @@
     <color name="all_1a1a1a">#1a1a1a</color>
     <color name="all_dbdbdb">#dbdbdb</color>
     <color name="all_808080">#808080</color>
+    <color name="color_transparent">#00ffffff</color>
+    <color name="color_1ca0be">#1ca0be</color>
+    <color name="color_5c5c5c">#5c5c5c</color>
+    <color name="color_c1c0c0">#c1c0c0</color>
+
+    <color name="text_color_normal">#8A000000</color>
+    <color name="text_color_night">#a9a8a8</color>
+    <color name="text_color_blue">#486c94</color>
+    <color name="text_color_white">#fbe6e3e3</color>
+    <color name="text_color_black">#121111</color>
 </resources>

@@ -6,9 +6,12 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.core.view.ViewCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.xhf.wholeproject.constant.UserManager;
 import com.xhf.wholeproject.view.activity.MainActivity;
+import com.xhf.wholeproject.view.fragment.ReadingFragment;
 
 
 /***
@@ -129,4 +132,6 @@ public abstract class BaseActivity extends BaseAppCompatActivity {
             parent0.invalidate();
         }
     }
+
+
 }
