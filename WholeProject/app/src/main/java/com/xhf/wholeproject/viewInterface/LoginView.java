@@ -11,10 +11,5 @@ import com.xhf.wholeproject.base.BaseView;
  */
 public interface LoginView  extends BaseView {
     void onLogin(int state);
-    void onRegistere();
-    void onQQLogin();
-    void onWeiXinLogin();
-    void onWeiBoLogin();
-    void onStatment();
 
 }

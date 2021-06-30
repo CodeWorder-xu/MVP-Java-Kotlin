@@ -139,7 +139,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-        AutoAdapterUtil.setDefault(this);
+//        AutoAdapterUtil.setDefault(this);
         mContext = this;
         TAG = this.getClass().getSimpleName();
 
@@ -315,6 +315,31 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
      */
     protected void readyGo(Class<?> clazz) {
         Intent intent = new Intent(this, clazz);
+        startActivity(intent);
+    }
+
+    /**
+     * 打开新的ctivity并且清空之前所有的堆栈
+     *
+     * @param clazz
+     */
+    protected void readyGoCleanAll(Class<?> clazz) {
+        Intent intent = new Intent(this, clazz).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    /**
+     * 打开Activity并且携带Bundle
+     *
+     * @param clazz
+     * @param bundle
+     */
+    protected void readyGoCleanAll(Class<?> clazz, Bundle bundle) {
+        Intent intent = new Intent(this, clazz);
+        if (null != bundle) {
+            intent.putExtras(bundle);
+        }
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 

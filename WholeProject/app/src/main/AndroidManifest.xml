@@ -4,9 +4,10 @@
     package="com.xhf.wholeproject">
 
 
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -42,9 +43,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.BookReadActivity"/>
-        <activity android:name=".view.activity.LoginAcivity"
-            android:windowSoftInputMode="adjustPan"/>
+        <!--  电子书阅读-->
+        <activity android:name=".view.activity.BookReadActivity" />
+        <!--  登录-->
+        <activity
+            android:name=".view.activity.LoginAcivity"
+            android:windowSoftInputMode="adjustPan" />
+        <!--   注测-->
+        <activity android:name=".view.activity.RegisteredActivity" />
     </application>
 
 </manifest>

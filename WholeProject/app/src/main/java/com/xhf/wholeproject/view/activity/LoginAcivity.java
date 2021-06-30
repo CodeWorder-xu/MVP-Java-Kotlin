@@ -4,10 +4,13 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.text.style.AbsoluteSizeSpan;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
@@ -15,12 +18,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.xhf.wholeproject.R;
 import com.xhf.wholeproject.base.BaseActivity;
 import com.xhf.wholeproject.presenter.impl.LoginPresenterImpl;
+import com.xhf.wholeproject.utils.CommonUtils;
 import com.xhf.wholeproject.utils.ILog;
 import com.xhf.wholeproject.viewInterface.LoginView;
 
@@ -54,8 +59,8 @@ public class LoginAcivity extends BaseActivity implements LoginView {
     ImageView imgWeibo;
     @BindView(R.id.img_more)
     ImageView imgMore;
-    @BindView(R.id.ib_back)
-    ImageButton ibBack;
+    @BindView(R.id.ll_back)
+    LinearLayout llBack;
     @BindView(R.id.tv_title)
     TextView tvTitle;
     @BindView(R.id.tv_title_right)
@@ -70,30 +75,13 @@ public class LoginAcivity extends BaseActivity implements LoginView {
     @Override
     protected void initViewsAndEvents() {
         super.initViewsAndEvents();
-        ibBack.setVisibility(View.GONE);
+        llBack.setVisibility(View.GONE);
         tvTitle.setText("登录");
-        onStringWatcher(etAccount);
-        onStringWatcher(etPassword);
-        int height = tvStatment.getHeight();
-        int measuredHeight = tvStatment.getMeasuredHeight();
+        CommonUtils.setHint(etAccount, getResources().getText(R.string.account_hint), 10);
+        CommonUtils.setHint(etPassword, getResources().getText(R.string.password_hint), 10);
+        CommonUtils.onStringWatcher(etAccount, 18);
+        CommonUtils.onStringWatcher(etPassword, 10);
 
-
-        WindowManager wm = (WindowManager) this
-                .getSystemService(Context.WINDOW_SERVICE);
-        int width1 = wm.getDefaultDisplay().getWidth();
-        int height1 = wm.getDefaultDisplay().getHeight();
-
-        ILog.d("--------"+width1+"+++++"+height1);
-        tvStatment.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
-            public boolean onPreDraw() {
-                tvStatment.getViewTreeObserver().removeOnPreDrawListener(this);
-                int height = tvStatment.getMeasuredHeight();
-                int width = tvStatment.getMeasuredWidth();
-                ILog.d("-----000000000---"+height+"+++=======++"+width);
-
-                return true;
-            }
-        });
         loginPresenter = new LoginPresenterImpl(this, this);
 
     }
@@ -110,7 +98,7 @@ public class LoginAcivity extends BaseActivity implements LoginView {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.but_login, R.id.tv_statment, R.id.tv_registered, R.id.img_qq, R.id.img_weixin, R.id.img_weibo, R.id.img_more, R.id.ib_back, R.id.img_showpass})
+    @OnClick({R.id.but_login, R.id.tv_statment, R.id.tv_registered, R.id.img_qq, R.id.img_weixin, R.id.img_weibo, R.id.img_more, R.id.ll_back, R.id.img_showpass})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.but_login://登录
@@ -127,12 +115,12 @@ public class LoginAcivity extends BaseActivity implements LoginView {
 
                 loginPresenter.onLogin(account, password);
                 break;
-            case R.id.tv_statment:
+            case R.id.tv_statment://静思说明
                 break;
-            case R.id.ib_back:
+            case R.id.ll_back://返回
                 finish();
                 break;
-            case R.id.img_showpass:
+            case R.id.img_showpass://密码
                 if (!isLook) {
                     isLook = true;
                     imgShowpass.setBackground(getResources().getDrawable(R.drawable.ic_look));
@@ -143,6 +131,9 @@ public class LoginAcivity extends BaseActivity implements LoginView {
                     imgShowpass.setBackground(getResources().getDrawable(R.drawable.ic_nolook));
                     etPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
                 }
+                break;
+            case R.id.tv_registered://注册账号
+                readyGo(RegisteredActivity.class);
                 break;
 
 
@@ -156,59 +147,10 @@ public class LoginAcivity extends BaseActivity implements LoginView {
         readyGoThenKill(MainActivity.class);
     }
 
-    @Override
-    public void onRegistere() {
-    }
-
-    @Override
-    public void onQQLogin() {
-
-    }
-
-    @Override
-    public void onWeiXinLogin() {
-
-    }
-
-    @Override
-    public void onWeiBoLogin() {
-
-    }
-
-    @Override
-    public void onStatment() {
-
-    }
 
     @Override
     public void onShowToast(String string) {
         showToast(string);
-    }
-
-    public void onStringWatcher(EditText e) {
-        e.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (s.length() > 0) {
-                    for (int i = 0; i < s.length(); i++) {
-                        char c = s.charAt(i);
-                        if (c >= 0x4e00 && c <= 0X9fff) {
-                            s.delete(i, i + 1);
-                        }
-                    }
-                }
-            }
-        });
     }
 
 
