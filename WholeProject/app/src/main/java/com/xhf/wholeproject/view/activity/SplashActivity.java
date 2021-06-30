@@ -71,20 +71,23 @@ public class SplashActivity extends BaseActivity implements SplashView {
     @Override
     public void onToMain() {
         SPManager.setBoolean(this, "isgray", false);
-//
-        if (supportFingerprint()) {
-            initKey();
-            initCipher();
-        } else {
-            readyGoThenKill(MainActivity.class);
+////
+//        if (supportFingerprint()) {
+//            initKey();
+//            initCipher();
+//        } else {
+            if (isLogin()) {
+                readyGoThenKill(MainActivity.class);
+            } else {
+                readyGoThenKill(LoginAcivity.class);
+//            }
         }
     }
 
     @Override
     public void onToNavigation() {
         SPManager.setBoolean(this, "isgray", true);
-//        readyGoThenKill(GuidePageActivity.class);
-        readyGoThenKill(MainActivity.class);
+        readyGoThenKill(GuidePageActivity.class);
     }
 
 
@@ -174,8 +177,11 @@ public class SplashActivity extends BaseActivity implements SplashView {
     }
 
     public void onAuthenticated() {
-        readyGoThenKill(MainActivity.class);
-
+        if (isLogin()) {
+            readyGoThenKill(MainActivity.class);
+        } else {
+            readyGoThenKill(LoginAcivity.class);
+        }
     }
 
 }

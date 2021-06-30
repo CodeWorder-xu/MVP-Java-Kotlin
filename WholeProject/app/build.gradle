@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: 'org.greenrobot.greendao'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -29,6 +29,12 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+}
+greendao {
+    schemaVersion 1 //当前数据库版本
+    daoPackage 'com.example.greendao.dao'//数据库全路径
+    targetGenDir 'src/main/java'//存放位置
 }
 
 dependencies {
@@ -88,4 +94,5 @@ dependencies {
 
     // 权限请求框架
     implementation 'com.github.getActivity:XXPermissions:11.5'
+    implementation 'org.greenrobot:greendao:3.2.2' // 添加库
 }

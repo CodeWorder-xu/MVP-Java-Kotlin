@@ -119,7 +119,7 @@ public class UserManager {
         String idNumber = null;
         InfoMessageEntity userLoginInfoEntity = Hawk.get(USER_INFO);
         if (userLoginInfoEntity != null) {
-            idNumber = userLoginInfoEntity.getIdNumber();
+//            idNumber = userLoginInfoEntity.getIdNumber();
         }
         if (TextUtils.isEmpty(idNumber)) {
             hasFullValue = false;
@@ -152,9 +152,9 @@ public class UserManager {
         getUserList();
         List<InfoMessageEntity> tepList = new ArrayList<InfoMessageEntity>();
         for (int i = 0; i < tepList.size(); i++) {
-            if (infoMessageEntity.getIdNumber() == userList.get(i).getIdNumber()) {
-                tepList.remove(i);
-            }
+//            if (infoMessageEntity.getIdNumber() == userList.get(i).getIdNumber()) {
+//                tepList.remove(i);
+//            }
             tepList.add(userList.get(i));
         }
         userList.clear();

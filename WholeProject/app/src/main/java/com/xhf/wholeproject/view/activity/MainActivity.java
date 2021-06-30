@@ -3,13 +3,18 @@ package com.xhf.wholeproject.view.activity;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.provider.ContactsContract;
 import android.view.KeyEvent;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -21,12 +26,14 @@ import com.xhf.wholeproject.R;
 import com.xhf.wholeproject.base.BaseActivity;
 import com.xhf.wholeproject.constant.MyApplication;
 import com.xhf.wholeproject.presenter.impl.BookFPresenterImpl;
+import com.xhf.wholeproject.utils.PhoneInfoUtils;
 import com.xhf.wholeproject.view.fragment.HomeFragment;
 import com.xhf.wholeproject.view.fragment.ListFragment;
 import com.xhf.wholeproject.view.fragment.MineFragment;
 import com.xhf.wholeproject.view.fragment.MovieFragment;
 
 import java.util.List;
+import java.util.UUID;
 
 import butterknife.BindView;
 
@@ -52,7 +59,6 @@ public class MainActivity extends BaseActivity {
     RadioGroup radioGroup;
     private Fragment presentFragment = new Fragment();
     private static long DOUBLE_CLICK_TIME = 0L;
-    private String s = null;
 
     @Override
     protected int getContentViewLayoutID() {
@@ -67,6 +73,12 @@ public class MainActivity extends BaseActivity {
         setRadioClick();
         onSwitchFragment(new HomeFragment()).commit();
         codeSCan();
+        String uuid = PhoneInfoUtils.getUuid();
+        String imei = PhoneInfoUtils.getIMEI(MainActivity.this);
+        String serial = PhoneInfoUtils.getSERIAL();
+        String wlanId=PhoneInfoUtils.getWlanId(MainActivity.this);
+        String androidId = PhoneInfoUtils.getAndroidId(MainActivity.this);
+        showToast("uuid" + uuid+"===imei"+imei+"-----serial"+serial+"----androidId"+androidId+ "------wlan="+wlanId);
     }
 
     public void setRadioClick() {

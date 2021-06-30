@@ -110,7 +110,13 @@ public class GuidePageActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.guide_action_bt:
                 SPManager.setBoolean(GuidePageActivity.this, "isFirst", true);
-                readyGoThenKill(MainActivity.class);
+                if(isLogin()){
+                    readyGoThenKill(MainActivity.class);
+                }else{
+                    readyGoThenKill(LoginAcivity.class);
+
+                }
+
                 break;
             default:
         }
