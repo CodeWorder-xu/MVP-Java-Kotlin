@@ -8,8 +8,12 @@
     <string name="net_connected">网络已连接</string>
     <string name="net_disconntcted">网络连接已断开</string>
     <string name="exit_hint">再按一次退出</string>
-    <string name="personal_detalis">个人信息</string>
-    <string name="unLogin">退出登录</string>
+    <string name="setting_detalis">个人信息</string>
+    <string name="setting_currency">通用设置</string>
+    <string name="setting_account">账号安全</string>
+    <string name="setting_cache">清除缓存</string>
+    <string name="setting_about">关于静思</string>
+    <string name="setting_unLogin">退出登录</string>
     <string name="retrieve">检索本地</string>
     <string name="manual">手动导入</string>
     <string name="main">首页</string>
@@ -24,6 +28,7 @@
     <string name="account_hint">请输入您的账号,手机号,邮箱或身份证号,最多输入18位数字</string>
     <string name="password_hint">请输入您的密码,最多输入10位数</string>
     <string name="register">注册</string>
+    <string name="register_error">注册失败,请稍后重试</string>
     <string name="register_account">请输入您注册的账号</string>
     <string name="register_name">请输入您的昵称</string>
     <string name="register_password">请输入您的密码,最多输入10位</string>
@@ -36,4 +41,20 @@
     <string name="register_getnum">获取验证码</string>
     <string name="privacy_statement">《关于静思的隐私声明权限》</string>
     <string name="filter_vcode">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+
+    <string name="info_name">请填写您的真实姓名</string>
+    <string name="info_nickName">请填写您的昵称</string>
+    <string name="info_age">请选择您的性别</string>
+    <string name="info_mailbox">请输入您的邮箱</string>
+    <string name="info_idNum">请输入您的身份证</string>
+    <string name="info_birthday">请选择您的生日</string>
+
+    <string name="account_modifyPhone">请输入修改的手机号</string>
+    <string name="account_modifyMailBox">请输入修改后的邮箱地址</string>
+    <string name="account_modifyMailPassword">请输入您要修改的密码</string>
+    <string name="unlogin">退出账号后,本APP将无法正常使用,您确定要退出吗?</string>
+    <string name="confirm">确定</string>
+    <string name="cancle">取消</string>
+
+
 </resources>

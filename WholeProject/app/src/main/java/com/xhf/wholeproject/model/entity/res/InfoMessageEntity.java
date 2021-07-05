@@ -18,6 +18,7 @@ public class InfoMessageEntity {
     private Long id;
     @Index(unique = true)//设置唯一性
     private String userid;
+    private String imageUrl;//头像
     private String name;//真实姓名
     private String nickName;//昵称
     private String age;//年龄
@@ -29,14 +30,14 @@ public class InfoMessageEntity {
     private String IDNum;//身份证
     private String birthday;//生日
     private String token;
-
-    @Generated(hash = 545949476)
-    public InfoMessageEntity(Long id, String userid, String name, String nickName,
-            String age, String gender, String phone, String mailbox,
-            String passWord, String account, String IDNum, String birthday,
-            String token) {
+    @Generated(hash = 1013504203)
+    public InfoMessageEntity(Long id, String userid, String imageUrl, String name,
+            String nickName, String age, String gender, String phone,
+            String mailbox, String passWord, String account, String IDNum,
+            String birthday, String token) {
         this.id = id;
         this.userid = userid;
+        this.imageUrl = imageUrl;
         this.name = name;
         this.nickName = nickName;
         this.age = age;
@@ -49,112 +50,93 @@ public class InfoMessageEntity {
         this.birthday = birthday;
         this.token = token;
     }
-
     @Generated(hash = 1123924180)
     public InfoMessageEntity() {
     }
-
     public Long getId() {
-        return id;
+        return this.id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
-
     public String getUserid() {
-        return userid;
+        return this.userid;
     }
-
     public void setUserid(String userid) {
         this.userid = userid;
     }
-
-    public String getName() {
-        return name;
+    public String getImageUrl() {
+        return this.imageUrl;
     }
-
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+    public String getName() {
+        return this.name;
+    }
     public void setName(String name) {
         this.name = name;
     }
-
     public String getNickName() {
-        return nickName;
+        return this.nickName;
     }
-
     public void setNickName(String nickName) {
         this.nickName = nickName;
     }
-
     public String getAge() {
-        return age;
+        return this.age;
     }
-
     public void setAge(String age) {
         this.age = age;
     }
-
     public String getGender() {
-        return gender;
+        return this.gender;
     }
-
     public void setGender(String gender) {
         this.gender = gender;
     }
-
     public String getPhone() {
-        return phone;
+        return this.phone;
     }
-
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
     public String getMailbox() {
-        return mailbox;
+        return this.mailbox;
     }
-
     public void setMailbox(String mailbox) {
         this.mailbox = mailbox;
     }
-
     public String getPassWord() {
-        return passWord;
+        return this.passWord;
     }
-
     public void setPassWord(String passWord) {
         this.passWord = passWord;
     }
-
     public String getAccount() {
-        return account;
+        return this.account;
     }
-
     public void setAccount(String account) {
         this.account = account;
     }
-
     public String getIDNum() {
-        return IDNum;
+        return this.IDNum;
     }
-
     public void setIDNum(String IDNum) {
         this.IDNum = IDNum;
     }
-
     public String getBirthday() {
-        return birthday;
+        return this.birthday;
     }
-
     public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
-
     public String getToken() {
-        return token;
+        return this.token;
     }
-
     public void setToken(String token) {
         this.token = token;
     }
+
+
 }

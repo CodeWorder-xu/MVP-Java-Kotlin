@@ -1,31 +1,23 @@
 package com.xhf.wholeproject.view.activity;
 
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.provider.ContactsContract;
 import android.view.KeyEvent;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
-import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.xhf.wholeproject.R;
 import com.xhf.wholeproject.base.BaseActivity;
 import com.xhf.wholeproject.constant.MyApplication;
-import com.xhf.wholeproject.presenter.impl.BookFPresenterImpl;
 import com.xhf.wholeproject.utils.PhoneInfoUtils;
 import com.xhf.wholeproject.view.fragment.HomeFragment;
 import com.xhf.wholeproject.view.fragment.ListFragment;
@@ -33,30 +25,33 @@ import com.xhf.wholeproject.view.fragment.MineFragment;
 import com.xhf.wholeproject.view.fragment.MovieFragment;
 
 import java.util.List;
-import java.util.UUID;
 
 import butterknife.BindView;
 
 
-/**
+/***
+ *Date：21-6-30
  *
+ *author:Xu.Mr
+ *
+ * content:首页
  */
 public class MainActivity extends BaseActivity {
 
-    @BindView(R.id.vp_home)
-    FrameLayout vpHome;
+    @BindView(R.id.fl_home)
+    FrameLayout flHome;
     @BindView(R.id.rb_Main)
     RadioButton rbMain;
     @BindView(R.id.rb_Syllabus)
     RadioButton rbSyllabus;
-    @BindView(R.id.tab_pk)
-    RadioButton tabPk;
+    @BindView(R.id.rb_pk)
+    RadioButton rbPk;
     @BindView(R.id.rb_OpenClass)
     RadioButton rbOpenClass;
     @BindView(R.id.rb_Answer)
     RadioButton rbAnswer;
-    @BindView(R.id.radioGroup)
-    RadioGroup radioGroup;
+    @BindView(R.id.rg_radioGroup)
+    RadioGroup rgRadioGroup;
     private Fragment presentFragment = new Fragment();
     private static long DOUBLE_CLICK_TIME = 0L;
 
@@ -76,13 +71,13 @@ public class MainActivity extends BaseActivity {
         String uuid = PhoneInfoUtils.getUuid();
         String imei = PhoneInfoUtils.getIMEI(MainActivity.this);
         String serial = PhoneInfoUtils.getSERIAL();
-        String wlanId=PhoneInfoUtils.getWlanId(MainActivity.this);
+        String wlanId = PhoneInfoUtils.getWlanId(MainActivity.this);
         String androidId = PhoneInfoUtils.getAndroidId(MainActivity.this);
-        showToast("uuid" + uuid+"===imei"+imei+"-----serial"+serial+"----androidId"+androidId+ "------wlan="+wlanId);
+        showToast("uuid" + uuid + "===imei" + imei + "-----serial" + serial + "----androidId" + androidId + "------wlan=" + wlanId);
     }
 
     public void setRadioClick() {
-        radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+        rgRadioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.rb_Main://首页
                     onSwitchFragment(new HomeFragment()).commit();
@@ -113,9 +108,7 @@ public class MainActivity extends BaseActivity {
             if (null != presentFragment) {
                 transaction.hide(presentFragment);
             }
-            transaction.add(R.id.vp_home, targetFragment, targetFragment.getClass().getName());
-
-
+            transaction.add(R.id.fl_home, targetFragment, targetFragment.getClass().getName());
         }
         presentFragment = targetFragment;
         return transaction;
@@ -163,29 +156,6 @@ public class MainActivity extends BaseActivity {
                         }
                     }
                 });
-
-
-        /**    //摄像头权限
-         RxPermissions rxPermissions = new RxPermissions(MainActivity.this);
-         rxPermissions.request(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
-         .subscribe(granted -> {
-         if (granted) {
-         //二维码扫描登录
-         showToast("申请到权限");
-         } else {
-         showToast("请打开此应用的摄像头权限！");
-         }
-         });
-         rxPermissions.request(Manifest.permission.READ_PHONE_STATE, Manifest.permission.CALL_PHONE, Manifest.permission.READ_CALL_LOG)
-         .subscribe(granted -> {
-         if (granted) {
-         //二维码扫描登录
-         showToast("申请到权限");
-         } else {
-         showToast("请打开此应用的拨打电话权限！");
-         }
-         });*/
-
 
     }
 

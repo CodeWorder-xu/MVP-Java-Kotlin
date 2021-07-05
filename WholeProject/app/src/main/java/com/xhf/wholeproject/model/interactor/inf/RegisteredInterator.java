@@ -8,7 +8,9 @@ package com.xhf.wholeproject.model.interactor.inf;
  *content:
  */
 public interface RegisteredInterator {
-    void onRegistered(String name, String phone, String password);
+    boolean onRegistered(String name, String phone, String password);
 
     Boolean onVerify(String num);
+
+    String getVerify();
 }

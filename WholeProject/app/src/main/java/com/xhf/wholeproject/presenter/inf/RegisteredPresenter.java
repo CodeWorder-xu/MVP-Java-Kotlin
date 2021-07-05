@@ -8,5 +8,7 @@ package com.xhf.wholeproject.presenter.inf;
  *content:
  */
 public interface RegisteredPresenter {
+void onReginstered(String num,String nickName,String phone,String password);
+void onVerifyNum();
 
 }

@@ -1,5 +1,7 @@
 package com.xhf.wholeproject.viewInterface;
 
+import com.xhf.wholeproject.base.BaseView;
+
 /***
  *Date：21-6-30
  *
@@ -7,7 +9,8 @@ package com.xhf.wholeproject.viewInterface;
  *
  *content:注册
  */
-public interface RegisteredView {
+public interface RegisteredView  extends BaseView {
     void onRegisteredSuccess();
     void onErrorNum();
+    void onVerifyNum(String verifyNum);
 }

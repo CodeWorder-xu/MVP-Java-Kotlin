@@ -54,7 +54,7 @@ public class MyApplication extends LitePalApplication implements Thread.Uncaught
         Hawk.init(this).build();
         instance = this;
         //屏幕适配
-        AutoAdapterUtil.initAppDensity(this);
+//        AutoAdapterUtil.initAppDensity(this);
         //Ilog初始化
         initLog();
 //        // setAppend是否为追加模式, setSimple是否是简单的log信息,

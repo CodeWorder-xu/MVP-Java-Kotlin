@@ -33,8 +33,8 @@ public class AutoAdapterUtil {
 
     private static final int WIDTH = 1;
     private static final int HEIGHT = 2;
-    private static final float DEFAULT_WIDTH = 1080f; //默认宽度 720dp
-    private static final float DEFAULT_HEIGHT = 4800f; //默认高度   1080dp
+    private static final float DEFAULT_WIDTH = 720f; //默认宽度 720dp
+    private static final float DEFAULT_HEIGHT = 1080f; //默认高度   1080dp
     private static float appDensity;
     /**
      * 字体的缩放因子，正常情况下和density相等，但是调节系统字体大小后会改变这个值

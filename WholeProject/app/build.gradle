@@ -95,4 +95,9 @@ dependencies {
     // 权限请求框架
     implementation 'com.github.getActivity:XXPermissions:11.5'
     implementation 'org.greenrobot:greendao:3.2.2' // 添加库
+    //butterknife
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    kapt "com.jakewharton:butterknife-compiler:8.8.1"
+    //时间选择器
+    implementation 'com.contrarywind:Android-PickerView:4.1.7'
 }

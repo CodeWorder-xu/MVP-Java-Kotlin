@@ -89,16 +89,13 @@ public class DataUtils {
         QueryBuilder<InfoMessageEntity> builder = manager.getDaoSession().queryBuilder(cls);
 
         List<InfoMessageEntity> list = builder.where(InfoMessageEntityDao.Properties.Phone.eq(value))
-                .where(InfoMessageEntityDao.Properties.Mailbox.eq(value))
-                .where(InfoMessageEntityDao.Properties.Account.eq(value))
-                .where(InfoMessageEntityDao.Properties.IDNum.eq(value))
                 .list();
         return list;
     }
 
 
-    public List<InfoMessageEntity> queryData(String s) {
-        List<InfoMessageEntity> userInfoBeans = daoSession.queryRaw(InfoMessageEntity.class, " where userid = ?", s);
+    public List<InfoMessageEntity> queryData(String s, String where) {
+        List<InfoMessageEntity> userInfoBeans = daoSession.queryRaw(InfoMessageEntity.class, " where " + where + " = ?", s);
         return userInfoBeans;
     }
 

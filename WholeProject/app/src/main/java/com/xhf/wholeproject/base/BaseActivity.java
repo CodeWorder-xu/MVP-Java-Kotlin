@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.xhf.wholeproject.constant.UserManager;
+import com.xhf.wholeproject.utils.SPManager;
 import com.xhf.wholeproject.view.activity.LoginAcivity;
 import com.xhf.wholeproject.view.activity.MainActivity;
 import com.xhf.wholeproject.view.fragment.ReadingFragment;
@@ -111,31 +112,32 @@ public abstract class BaseActivity extends BaseAppCompatActivity {
 
     protected boolean isLogin() {
         boolean isLogin = false;
-        for(int z=0;z<UserManager.getInstance().getUserList().size();z++) {
-            {
-                if(!TextUtils.isEmpty(UserManager.getInstance().getToken())){
 
-                    isLogin=true;
-                }
-            }
+        if (!TextUtils.isEmpty(SPManager.getString(this, "token"))) {
+
+            isLogin = true;
+        } else {
+            isLogin = false;
         }
-
-
         return isLogin;
-    }
+
+
+}
 
     protected void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
+
     /**
      * 缩放空间的大小
+     *
      * @param view
      * @param scale
      */
-    protected void scaleView(View view,float scale) {
+    protected void scaleView(View view, float scale) {
         ViewCompat.animate(view).scaleX(scale).scaleY(scale).start();
         ViewGroup parent0 = (ViewGroup) view.getParent();
-        if(parent0 != null) {
+        if (parent0 != null) {
             parent0.requestLayout();
             parent0.invalidate();
         }

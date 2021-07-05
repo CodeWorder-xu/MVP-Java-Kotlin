@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.xhf.wholeproject.R;
 import com.xhf.wholeproject.base.BaseActivity;
+import com.xhf.wholeproject.presenter.impl.RegisteredPresenterImpl;
 import com.xhf.wholeproject.utils.CommonUtils;
 import com.xhf.wholeproject.utils.TimeCountUtil;
 import com.xhf.wholeproject.viewInterface.RegisteredView;
@@ -51,8 +52,11 @@ public class RegisteredActivity extends BaseActivity implements RegisteredView {
     EditText etNewpassword;
     @BindView(R.id.but_register)
     Button butRegister;
+    @BindView(R.id.tv_Num)
+    TextView tvNum;
     private TimeCountUtil mTimeCount;
     private Boolean isGetCode = true;
+    private RegisteredPresenterImpl registeredPresenter;
 
     @Override
     protected int getContentViewLayoutID() {
@@ -71,7 +75,7 @@ public class RegisteredActivity extends BaseActivity implements RegisteredView {
         CommonUtils.setHint(etNum, getResources().getText(R.string.register_num), 10);
         CommonUtils.setHint(etPhone, getResources().getText(R.string.register_phonenum), 10);
         CommonUtils.setHint(etNickname, getResources().getText(R.string.register_name), 10);
-
+        registeredPresenter = new RegisteredPresenterImpl(this, this);
     }
 
 
@@ -83,6 +87,11 @@ public class RegisteredActivity extends BaseActivity implements RegisteredView {
     @Override
     public void onErrorNum() {
         showToast(getResources().getString(R.string.register_errornum));
+    }
+
+    @Override
+    public void onVerifyNum(String verifyNum) {
+        tvNum.setText(verifyNum);
     }
 
     @Override
@@ -136,15 +145,19 @@ public class RegisteredActivity extends BaseActivity implements RegisteredView {
                 }
                 if (!passNewWord.equals(passWord)) {
                     showToast(getResources().getString(R.string.register_errorPassword));
+                    return;
                 }
 
-
+                registeredPresenter.onReginstered(num, nickName, phoneNum, passWord);
 
                 break;
             case R.id.tv_getNum://获取验证码
                 String phone = etPhone.getText().toString().trim();
                 if (!TextUtils.isEmpty(phone) && CommonUtils.isChinaPhoneLegal(phone)) {
+                    registeredPresenter.onVerifyNum();
                     startTime();
+                }else{
+                    showToast(getResources().getString(R.string.register_error_phonenum));
                 }
                 break;
             case R.id.tv_statment://说明
@@ -161,6 +174,7 @@ public class RegisteredActivity extends BaseActivity implements RegisteredView {
             @Override
             public void onTick(long millisUntilFinished) {
                 if (tvGetNum != null) {
+                    tvNum.setVisibility(View.VISIBLE);
                     tvGetNum.setEnabled(false);
                     tvGetNum.setTextColor(getResources().getColor(R.color.gray));
                     tvGetNum.setBackgroundResource(R.drawable.shape_booktitle);
@@ -185,5 +199,9 @@ public class RegisteredActivity extends BaseActivity implements RegisteredView {
     }
 
 
+    @Override
+    public void onShowToast(String string) {
+        showToast(string);
+    }
 }
 

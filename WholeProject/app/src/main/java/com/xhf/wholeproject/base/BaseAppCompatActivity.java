@@ -25,15 +25,19 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.DisplayCutout;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowInsets;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.app.SkinAppCompatDelegateImpl;
@@ -47,6 +51,7 @@ import com.xhf.wholeproject.utils.CrashHandler;
 import com.xhf.wholeproject.utils.SPManager;
 import com.xhf.wholeproject.utils.StringUtil;
 import com.xhf.wholeproject.utils.ToastUtil;
+import com.xhf.wholeproject.utils.WindowUtils;
 import com.xhf.wholeproject.widgets.CustomDialog;
 
 
@@ -60,6 +65,7 @@ import io.reactivex.rxjava3.disposables.Disposable;
  *
  */
 public abstract class BaseAppCompatActivity extends AppCompatActivity {
+    private static final String TAG_CUTOUT = "BASEAPPCOMPATACTIVITY";
     /**
      * Log tag
      */
@@ -110,6 +116,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (toggleOverridePendingTransition()) {
@@ -135,19 +142,22 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
                 default:
             }
         }
-
+        // 隐藏标题栏
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        // 隐藏状态栏
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
-
-
 //        AutoAdapterUtil.setDefault(this);
         mContext = this;
         TAG = this.getClass().getSimpleName();
 
-        //隐藏状态栏
-        if (AndroidWorkaroundUtils.checkDeviceHasNavigationBar(this)) {
-            AndroidWorkaroundUtils.assistActivity(findViewById(android.R.id.content));
+//        //隐藏状态栏
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
+            if (AndroidWorkaroundUtils.checkDeviceHasNavigationBar(this)) {
+                AndroidWorkaroundUtils.assistActivity(findViewById(android.R.id.content));
+            }
         }
-
 
         if (getContentViewLayoutID() != 0) {
             setContentView(getContentViewLayoutID());
@@ -594,5 +604,60 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
     @Override
     public AppCompatDelegate getDelegate() {
         return SkinAppCompatDelegateImpl.get(this, this);
+    }
+
+    private DisplayCutout cutoutDisp = null;
+
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+
+        //挖孔屏
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            try {
+                WindowInsets windowInsets = getWindow().getDecorView().getRootWindowInsets();
+                if (windowInsets != null) {
+                    cutoutDisp = windowInsets.getDisplayCutout();
+                } else {
+                    Log.i(TAG_CUTOUT, "windowInsets is null");
+                }
+            } catch (Exception e) {
+                Log.e(TAG_CUTOUT, "error:" + e.toString());
+            }
+            if (cutoutDisp != null) {
+                openFullScreenModel();
+                int CutOutSafeHeight = getStatusBarHeight();
+                Log.i(TAG_CUTOUT, "statusBar height:" + CutOutSafeHeight);
+            }
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.P)
+    public void openFullScreenModel() {
+        WindowManager.LayoutParams lp = getWindow().getAttributes();
+        lp.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
+        getWindow().setAttributes(lp);
+        View decorView = getWindow().getDecorView();
+        int systemUiVisibility = decorView.getSystemUiVisibility();
+        int flags = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN;
+        systemUiVisibility |= flags;
+        getWindow().getDecorView().setSystemUiVisibility(systemUiVisibility);
+
+
+    }
+
+    //获取状态栏高度
+    public int getStatusBarHeight() {
+        Context context = getApplicationContext();
+        int result = 0;
+        if (cutoutDisp != null) {
+            int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+            if (resourceId > 0) {
+                result = context.getResources().getDimensionPixelSize(resourceId);
+            }
+        }
+        return result;
     }
 }

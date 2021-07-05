@@ -26,17 +26,18 @@ public class InfoMessageEntityDao extends AbstractDao<InfoMessageEntity, Long> {
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Userid = new Property(1, String.class, "userid", false, "USERID");
-        public final static Property Name = new Property(2, String.class, "name", false, "NAME");
-        public final static Property NickName = new Property(3, String.class, "nickName", false, "NICK_NAME");
-        public final static Property Age = new Property(4, String.class, "age", false, "AGE");
-        public final static Property Gender = new Property(5, String.class, "gender", false, "GENDER");
-        public final static Property Phone = new Property(6, String.class, "phone", false, "PHONE");
-        public final static Property Mailbox = new Property(7, String.class, "mailbox", false, "MAILBOX");
-        public final static Property PassWord = new Property(8, String.class, "passWord", false, "PASS_WORD");
-        public final static Property Account = new Property(9, String.class, "account", false, "ACCOUNT");
-        public final static Property IDNum = new Property(10, String.class, "IDNum", false, "IDNUM");
-        public final static Property Birthday = new Property(11, String.class, "birthday", false, "BIRTHDAY");
-        public final static Property Token = new Property(12, String.class, "token", false, "TOKEN");
+        public final static Property ImageUrl = new Property(2, String.class, "imageUrl", false, "IMAGE_URL");
+        public final static Property Name = new Property(3, String.class, "name", false, "NAME");
+        public final static Property NickName = new Property(4, String.class, "nickName", false, "NICK_NAME");
+        public final static Property Age = new Property(5, String.class, "age", false, "AGE");
+        public final static Property Gender = new Property(6, String.class, "gender", false, "GENDER");
+        public final static Property Phone = new Property(7, String.class, "phone", false, "PHONE");
+        public final static Property Mailbox = new Property(8, String.class, "mailbox", false, "MAILBOX");
+        public final static Property PassWord = new Property(9, String.class, "passWord", false, "PASS_WORD");
+        public final static Property Account = new Property(10, String.class, "account", false, "ACCOUNT");
+        public final static Property IDNum = new Property(11, String.class, "IDNum", false, "IDNUM");
+        public final static Property Birthday = new Property(12, String.class, "birthday", false, "BIRTHDAY");
+        public final static Property Token = new Property(13, String.class, "token", false, "TOKEN");
     }
 
 
@@ -54,17 +55,18 @@ public class InfoMessageEntityDao extends AbstractDao<InfoMessageEntity, Long> {
         db.execSQL("CREATE TABLE " + constraint + "\"INFO_MESSAGE_ENTITY\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "\"USERID\" TEXT," + // 1: userid
-                "\"NAME\" TEXT," + // 2: name
-                "\"NICK_NAME\" TEXT," + // 3: nickName
-                "\"AGE\" TEXT," + // 4: age
-                "\"GENDER\" TEXT," + // 5: gender
-                "\"PHONE\" TEXT," + // 6: phone
-                "\"MAILBOX\" TEXT," + // 7: mailbox
-                "\"PASS_WORD\" TEXT," + // 8: passWord
-                "\"ACCOUNT\" TEXT," + // 9: account
-                "\"IDNUM\" TEXT," + // 10: IDNum
-                "\"BIRTHDAY\" TEXT," + // 11: birthday
-                "\"TOKEN\" TEXT);"); // 12: token
+                "\"IMAGE_URL\" TEXT," + // 2: imageUrl
+                "\"NAME\" TEXT," + // 3: name
+                "\"NICK_NAME\" TEXT," + // 4: nickName
+                "\"AGE\" TEXT," + // 5: age
+                "\"GENDER\" TEXT," + // 6: gender
+                "\"PHONE\" TEXT," + // 7: phone
+                "\"MAILBOX\" TEXT," + // 8: mailbox
+                "\"PASS_WORD\" TEXT," + // 9: passWord
+                "\"ACCOUNT\" TEXT," + // 10: account
+                "\"IDNUM\" TEXT," + // 11: IDNum
+                "\"BIRTHDAY\" TEXT," + // 12: birthday
+                "\"TOKEN\" TEXT);"); // 13: token
         // Add Indexes
         db.execSQL("CREATE UNIQUE INDEX " + constraint + "IDX_INFO_MESSAGE_ENTITY_USERID ON \"INFO_MESSAGE_ENTITY\"" +
                 " (\"USERID\" ASC);");
@@ -90,59 +92,64 @@ public class InfoMessageEntityDao extends AbstractDao<InfoMessageEntity, Long> {
             stmt.bindString(2, userid);
         }
  
+        String imageUrl = entity.getImageUrl();
+        if (imageUrl != null) {
+            stmt.bindString(3, imageUrl);
+        }
+ 
         String name = entity.getName();
         if (name != null) {
-            stmt.bindString(3, name);
+            stmt.bindString(4, name);
         }
  
         String nickName = entity.getNickName();
         if (nickName != null) {
-            stmt.bindString(4, nickName);
+            stmt.bindString(5, nickName);
         }
  
         String age = entity.getAge();
         if (age != null) {
-            stmt.bindString(5, age);
+            stmt.bindString(6, age);
         }
  
         String gender = entity.getGender();
         if (gender != null) {
-            stmt.bindString(6, gender);
+            stmt.bindString(7, gender);
         }
  
         String phone = entity.getPhone();
         if (phone != null) {
-            stmt.bindString(7, phone);
+            stmt.bindString(8, phone);
         }
  
         String mailbox = entity.getMailbox();
         if (mailbox != null) {
-            stmt.bindString(8, mailbox);
+            stmt.bindString(9, mailbox);
         }
  
         String passWord = entity.getPassWord();
         if (passWord != null) {
-            stmt.bindString(9, passWord);
+            stmt.bindString(10, passWord);
         }
  
         String account = entity.getAccount();
         if (account != null) {
-            stmt.bindString(10, account);
+            stmt.bindString(11, account);
         }
  
         String IDNum = entity.getIDNum();
         if (IDNum != null) {
-            stmt.bindString(11, IDNum);
+            stmt.bindString(12, IDNum);
         }
  
         String birthday = entity.getBirthday();
         if (birthday != null) {
-            stmt.bindString(12, birthday);
+            stmt.bindString(13, birthday);
         }
  
         String token = entity.getToken();
         if (token != null) {
-            stmt.bindString(13, token);
+            stmt.bindString(14, token);
         }
     }
 
@@ -160,59 +167,64 @@ public class InfoMessageEntityDao extends AbstractDao<InfoMessageEntity, Long> {
             stmt.bindString(2, userid);
         }
  
+        String imageUrl = entity.getImageUrl();
+        if (imageUrl != null) {
+            stmt.bindString(3, imageUrl);
+        }
+ 
         String name = entity.getName();
         if (name != null) {
-            stmt.bindString(3, name);
+            stmt.bindString(4, name);
         }
  
         String nickName = entity.getNickName();
         if (nickName != null) {
-            stmt.bindString(4, nickName);
+            stmt.bindString(5, nickName);
         }
  
         String age = entity.getAge();
         if (age != null) {
-            stmt.bindString(5, age);
+            stmt.bindString(6, age);
         }
  
         String gender = entity.getGender();
         if (gender != null) {
-            stmt.bindString(6, gender);
+            stmt.bindString(7, gender);
         }
  
         String phone = entity.getPhone();
         if (phone != null) {
-            stmt.bindString(7, phone);
+            stmt.bindString(8, phone);
         }
  
         String mailbox = entity.getMailbox();
         if (mailbox != null) {
-            stmt.bindString(8, mailbox);
+            stmt.bindString(9, mailbox);
         }
  
         String passWord = entity.getPassWord();
         if (passWord != null) {
-            stmt.bindString(9, passWord);
+            stmt.bindString(10, passWord);
         }
  
         String account = entity.getAccount();
         if (account != null) {
-            stmt.bindString(10, account);
+            stmt.bindString(11, account);
         }
  
         String IDNum = entity.getIDNum();
         if (IDNum != null) {
-            stmt.bindString(11, IDNum);
+            stmt.bindString(12, IDNum);
         }
  
         String birthday = entity.getBirthday();
         if (birthday != null) {
-            stmt.bindString(12, birthday);
+            stmt.bindString(13, birthday);
         }
  
         String token = entity.getToken();
         if (token != null) {
-            stmt.bindString(13, token);
+            stmt.bindString(14, token);
         }
     }
 
@@ -226,17 +238,18 @@ public class InfoMessageEntityDao extends AbstractDao<InfoMessageEntity, Long> {
         InfoMessageEntity entity = new InfoMessageEntity( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // userid
-            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // name
-            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // nickName
-            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // age
-            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // gender
-            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // phone
-            cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // mailbox
-            cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8), // passWord
-            cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9), // account
-            cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10), // IDNum
-            cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11), // birthday
-            cursor.isNull(offset + 12) ? null : cursor.getString(offset + 12) // token
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // imageUrl
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // name
+            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // nickName
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // age
+            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // gender
+            cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // phone
+            cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8), // mailbox
+            cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9), // passWord
+            cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10), // account
+            cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11), // IDNum
+            cursor.isNull(offset + 12) ? null : cursor.getString(offset + 12), // birthday
+            cursor.isNull(offset + 13) ? null : cursor.getString(offset + 13) // token
         );
         return entity;
     }
@@ -245,17 +258,18 @@ public class InfoMessageEntityDao extends AbstractDao<InfoMessageEntity, Long> {
     public void readEntity(Cursor cursor, InfoMessageEntity entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setUserid(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
-        entity.setName(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
-        entity.setNickName(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
-        entity.setAge(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
-        entity.setGender(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
-        entity.setPhone(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
-        entity.setMailbox(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
-        entity.setPassWord(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
-        entity.setAccount(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
-        entity.setIDNum(cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10));
-        entity.setBirthday(cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11));
-        entity.setToken(cursor.isNull(offset + 12) ? null : cursor.getString(offset + 12));
+        entity.setImageUrl(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setName(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
+        entity.setNickName(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setAge(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
+        entity.setGender(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
+        entity.setPhone(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
+        entity.setMailbox(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
+        entity.setPassWord(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
+        entity.setAccount(cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10));
+        entity.setIDNum(cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11));
+        entity.setBirthday(cursor.isNull(offset + 12) ? null : cursor.getString(offset + 12));
+        entity.setToken(cursor.isNull(offset + 13) ? null : cursor.getString(offset + 13));
      }
     
     @Override
