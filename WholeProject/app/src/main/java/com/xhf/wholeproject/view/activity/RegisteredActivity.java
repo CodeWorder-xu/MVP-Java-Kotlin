@@ -3,6 +3,7 @@ package com.xhf.wholeproject.view.activity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -66,6 +67,7 @@ public class RegisteredActivity extends BaseActivity implements RegisteredView {
     @Override
     protected void initViewsAndEvents() {
         super.initViewsAndEvents();
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         tvTitle.setText(getResources().getText(R.string.register));
         CommonUtils.onStringWatcher(etNewpassword, 10);
         CommonUtils.onStringWatcher(etPassword, 10);

@@ -153,11 +153,11 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
         TAG = this.getClass().getSimpleName();
 
 //        //隐藏状态栏
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
-            if (AndroidWorkaroundUtils.checkDeviceHasNavigationBar(this)) {
-                AndroidWorkaroundUtils.assistActivity(findViewById(android.R.id.content));
-            }
-        }
+//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
+//            if (AndroidWorkaroundUtils.checkDeviceHasNavigationBar(this)) {
+//                AndroidWorkaroundUtils.assistActivity(findViewById(android.R.id.content));
+//            }
+//        }
 
         if (getContentViewLayoutID() != 0) {
             setContentView(getContentViewLayoutID());

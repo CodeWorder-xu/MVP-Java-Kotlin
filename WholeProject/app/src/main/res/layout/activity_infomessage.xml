@@ -1,68 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@color/khaki">
 
-    <include layout="@layout/title_bar" />
-
-    <ImageView
-        android:id="@+id/iv_portrait"
-        android:layout_width="@dimen/dp_100"
-        android:layout_height="@dimen/dp_100"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/dp_20"
-        android:src="@drawable/ic_default_portrait" />
-
-    <EditText
-        android:id="@+id/tv_nickname"
-        style="@style/TextStyle"
-        android:layout_marginTop="@dimen/dp_10"
-        android:drawableRight="@drawable/ic_enter"
-        android:inputType="text"
-        android:maxLength="8" />
-
-    <EditText
-        android:id="@+id/et_name"
-        style="@style/TextStyle"
-        android:layout_marginTop="@dimen/dp_10"
-        android:drawableRight="@drawable/ic_enter"
-        android:inputType="text" />
-
-    <TextView
-        android:id="@+id/tv_age"
-        style="@style/TextStyle"
-        android:layout_marginTop="@dimen/dp_10"
-        android:drawableRight="@drawable/ic_enter" />
-
-    <TextView
-        android:id="@+id/tv_gender"
-        style="@style/TextStyle"
-        android:layout_marginTop="@dimen/dp_10"
-        android:drawableRight="@drawable/ic_enter" />
-
-    <EditText
-        android:id="@+id/et_idnum"
-        style="@style/TextStyle"
-        android:layout_marginTop="@dimen/dp_10"
-        android:digits="@string/filter_vcode"
-        android:drawableRight="@drawable/ic_enter" />
-
-    <TextView
-        android:id="@+id/tv_birthday"
-        style="@style/TextStyle"
-        android:layout_marginTop="@dimen/dp_10"
-        android:drawableRight="@drawable/ic_enter" />
-
-    <TextView
-        android:id="@+id/tv_confirm"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/deepskyblue"
-        android:gravity="center"
-        android:padding="@dimen/dp_20"
-        android:text="@string/confirm"
-        android:textColor="@color/white"
-        android:textSize="@dimen/sp_20" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <include layout="@layout/title_bar" />
+
+        <ImageView
+            android:id="@+id/iv_portrait"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_100"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_20"
+            android:src="@drawable/ic_default_portrait" />
+
+        <EditText
+            android:id="@+id/et_nickname"
+            style="@style/TextStyle"
+            android:layout_marginTop="@dimen/dp_10"
+            android:drawableRight="@drawable/ic_enter"
+            android:hint="@string/info_nickName"
+            android:inputType="text"
+            android:maxLength="8" />
+
+        <EditText
+            android:id="@+id/et_name"
+            style="@style/TextStyle"
+            android:layout_marginTop="@dimen/dp_10"
+            android:drawableRight="@drawable/ic_enter"
+            android:hint="@string/info_name"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/tv_age"
+            style="@style/TextStyle"
+            android:layout_marginTop="@dimen/dp_10"
+            android:drawableRight="@drawable/ic_enter"
+            android:hint="@string/info_age" />
+
+        <TextView
+            android:id="@+id/tv_gender"
+            style="@style/TextStyle"
+            android:layout_marginTop="@dimen/dp_10"
+            android:drawableRight="@drawable/ic_enter"
+            android:hint="@string/info_gender" />
+
+        <EditText
+            android:id="@+id/et_idnum"
+            style="@style/TextStyle"
+            android:layout_marginTop="@dimen/dp_10"
+            android:digits="@string/filter_vcode"
+            android:drawableRight="@drawable/ic_enter"
+            android:hint="@string/info_idNum" />
+
+        <TextView
+            android:id="@+id/tv_birthday"
+            style="@style/TextStyle"
+            android:layout_marginTop="@dimen/dp_10"
+            android:drawableRight="@drawable/ic_enter"
+            android:hint="@string/info_birthday" />
+
+        <TextView
+            android:id="@+id/tv_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/deepskyblue"
+            android:gravity="center"
+            android:padding="@dimen/dp_20"
+            android:text="@string/confirm"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_20" />
+    </LinearLayout>
+</ScrollView>

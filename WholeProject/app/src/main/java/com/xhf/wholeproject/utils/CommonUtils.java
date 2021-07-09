@@ -1,17 +1,38 @@
 package com.xhf.wholeproject.utils;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.text.Editable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextWatcher;
 import android.text.style.AbsoluteSizeSpan;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 
+import com.bigkoo.pickerview.builder.TimePickerBuilder;
+import com.bigkoo.pickerview.listener.OnTimeSelectListener;
+import com.bigkoo.pickerview.view.TimePickerView;
 import com.xhf.wholeproject.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
+import java.util.Calendar;
+
+import static java.util.Calendar.DATE;
+import static java.util.Calendar.MONTH;
+import static java.util.Calendar.YEAR;
+import static java.util.Calendar.getInstance;
 
 /***
  *Date：21-6-30
@@ -64,7 +85,7 @@ public class CommonUtils {
      * @return
      */
 
-    public static SpannableString setHint(EditText view,CharSequence hint, int size) {
+    public static SpannableString setHint(EditText view, CharSequence hint, int size) {
         SpannableString spannableString = new SpannableString(hint);
         AbsoluteSizeSpan span = new AbsoluteSizeSpan(size, true);
         spannableString.setSpan(span, 0, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -117,5 +138,62 @@ public class CommonUtils {
     }
 
 
+    /**
+     * 时间选择器
+     */
+    public static TimePickerView onTimePickView(Context context, final TextView view) {
+        Calendar startTime = getInstance();
+        startTime.set(1950, 0, 1);
+        Calendar endTime = getInstance();
+        endTime.set(endTime.get(YEAR), endTime.get(MONTH), endTime.get(DATE));
+        //时间选择器
+        TimePickerView pvTime = new TimePickerBuilder(context, new OnTimeSelectListener() {
+            @Override
+            public void onTimeSelect(Date date, View v) {
+                String time = getTime(date);
+                String year = time.substring(0, 4);
+                String month = time.substring(5, 7);
+                String day = time.substring(8, 10);
+                ILog.d("" + day);
+                view.setText(" " + year + "年" + month + "月" + day + "日");
+            }
+        }).setType(new boolean[]{true, true, true, false, false, false})
+                .setTitleText("选择您的生日")
+                .setTitleSize(17)
+                .setRangDate(startTime, endTime)
+                .setDate(getInstance())
+                .isDialog(true)
+//                .setLabel("年", "月", "日")//默认设置为年月日时分秒
+                .setOutSideCancelable(false)//点击外部dismiss default true
+                .setSubmitText("完成").build();
+
+        Dialog mDialog = pvTime.getDialog();
+        if (mDialog != null) {
+
+            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    Gravity.BOTTOM);
+
+            params.leftMargin = 0;
+            params.rightMargin = 0;
+            pvTime.getDialogContainerLayout().setLayoutParams(params);
+
+            Window dialogWindow = mDialog.getWindow();
+            if (dialogWindow != null) {
+                dialogWindow.setWindowAnimations(com.bigkoo.pickerview.R.style.picker_view_slide_anim);//修改动画样式
+                dialogWindow.setGravity(Gravity.BOTTOM);//改成Bottom,底部显示
+            }
+        }
+
+
+        return pvTime;
+    }
+
+    private static String getTime(Date date) {//可根据需要自行截取数据显示
+        Log.d("getTime()", "choice date millis: " + date.getTime());
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        return format.format(date);
+    }
 
 }

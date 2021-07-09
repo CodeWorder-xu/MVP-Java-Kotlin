@@ -44,7 +44,8 @@
 
     <string name="info_name">请填写您的真实姓名</string>
     <string name="info_nickName">请填写您的昵称</string>
-    <string name="info_age">请选择您的性别</string>
+    <string name="info_age">请选择您的年龄</string>
+    <string name="info_gender">请选择您的性别</string>
     <string name="info_mailbox">请输入您的邮箱</string>
     <string name="info_idNum">请输入您的身份证</string>
     <string name="info_birthday">请选择您的生日</string>

@@ -1,5 +1,7 @@
 package com.xhf.wholeproject.viewInterface
 
+import android.content.Context
+import com.bigkoo.pickerview.listener.OnTimeSelectListener
 import com.xhf.wholeproject.model.entity.res.InfoMessageEntity
 import com.xhf.wholeproject.view.activity.InfoMessage
 
@@ -11,6 +13,7 @@ import com.xhf.wholeproject.view.activity.InfoMessage
  * content:
  */
 interface InfoMessageView {
-    fun onGetValue(queryData: List<InfoMessageEntity>);
+    fun onGetValue(queryData: List<InfoMessageEntity>)
     fun onSetValue(isSuccess: Boolean, mesage: String)
+
 }
